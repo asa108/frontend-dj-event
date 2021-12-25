@@ -138,6 +138,7 @@ export default function AddEventPage({ token }) {
             id="description"
             value={values.description}
             onChange={handleInputChange}
+            style={{ padding: "5px" }}
           ></textarea>
         </div>
         <input type="submit" value="Add Event" className="btn" />

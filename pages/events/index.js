@@ -12,8 +12,9 @@ export default function EventsPage({ events, page, total }) {
       {events.map((evt) => (
         <EventItem key={evt.id} evt={evt} />
       ))}
-
-      <Pagination page={page} total={total} />
+      <div style={{ textAlign: "center" }}>
+        <Pagination page={page} total={total} />
+      </div>
     </Layout>
   );
 }

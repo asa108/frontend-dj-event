@@ -35,6 +35,13 @@ h1 {
   border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+  .btn{
+    margin: 0;
+    padding: 3px 10px;
+  }
+}
+
 .btn:hover {
   opacity: 0.9;
 }

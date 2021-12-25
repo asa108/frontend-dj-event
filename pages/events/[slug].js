@@ -6,7 +6,6 @@ import { API_URL } from "@/config/index";
 import styles from "@/styles/Event.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { FaPencilAlt, FaRegSmileWink, FaTimes } from "react-icons/fa";
 
 export default function EventPage({ evt }) {
 
