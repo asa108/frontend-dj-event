@@ -1,6 +1,6 @@
 import { parseCookies } from "@/helpers/index";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "@/components/Layout";
 import DashboardEvent from "@/components/DashboardEvent";

@@ -10,7 +10,6 @@
 }
 
 .event h4 {
-  margin-bottom: 10px;
   flex: 2;
 }
 
@@ -21,4 +20,10 @@
 
 .delete {
   color: red;
+}
+
+@media (max-width: 768px) {
+  .sm_icons{
+  display: flex;
+  }
 }
