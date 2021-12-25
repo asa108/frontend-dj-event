@@ -1,15 +1,32 @@
 import Link from "next/link";
-import { useContext, useState } from "react";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { FaSignInAlt, FaSignOutAlt, FaSearch } from "react-icons/fa";
 // import BiSearchAlt2 from "react-icons/fa";
 import styles from "../styles/Header.module.css";
 import AuthContext from "@/context/AuthContext";
 import Search from "./Search";
 
 export default function Header() {
+  const ref = useRef();
   const { user, logout } = useContext(AuthContext);
   const [test, setTest] = useState(false);
   const [search, setSearch] = useState(false);
+
+  useEffect(() => {
+    const checkIfClikcedOutside = (e) => {
+      if (search && ref.current && !ref.current.contains(e.target)) {
+        setSearch(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClikcedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClikcedOutside);
+    };
+  }, [search]);
+
+  const searchClicked = () => {
+    setSearch(true);
+  };
 
   return (
     <header className={styles.header}>
@@ -19,8 +36,11 @@ export default function Header() {
             <a>DJ Events</a>
           </Link>
         </div>
-        <Search />
-        {/* {search ? <Search /> : <BiSearchAlt2 />} */}
+        {search ? (
+          <Search ref={ref} />
+        ) : (
+          <FaSearch className={styles.search} onClick={searchClicked} />
+        )}
       </div>
       <nav>
         {user ? (

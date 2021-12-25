@@ -18,6 +18,15 @@
   color: #000;
 }
 
+.header .search{
+  margin:auto; 
+  cursor: pointer;
+}
+
+.header .search:hover{
+  opacity: .7;
+}
+
 .header .items_container{
     display: flex;
 }

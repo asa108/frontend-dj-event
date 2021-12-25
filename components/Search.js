@@ -1,8 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/Search.module.css";
 
-export default function Search() {
+const Search = React.forwardRef((props, ref) => {
   const [term, setTerm] = useState("");
   const router = useRouter();
 
@@ -13,7 +14,7 @@ export default function Search() {
     setTerm("");
   };
   return (
-    <div className={styles.search}>
+    <div className={styles.search} ref={ref}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -24,4 +25,6 @@ export default function Search() {
       </form>
     </div>
   );
-}
+});
+
+export default Search;
