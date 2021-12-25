@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+// import BiSearchAlt2 from "react-icons/fa";
 import styles from "../styles/Header.module.css";
 import AuthContext from "@/context/AuthContext";
 import Search from "./Search";
@@ -8,25 +9,29 @@ import Search from "./Search";
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
   const [test, setTest] = useState(false);
+  const [search, setSearch] = useState(false);
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <a>DJ Events</a>
-        </Link>
+      <div className={styles.header_search_logo}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <a>DJ Events</a>
+          </Link>
+        </div>
+        <Search />
+        {/* {search ? <Search /> : <BiSearchAlt2 />} */}
       </div>
-      <Search />
       <nav>
-        <ul>
-          <li>
-            <Link href="/events">
-              <a>Events</a>
-            </Link>
-          </li>
-          {user ? (
-            // If logged in
-            <>
+        {user ? (
+          <ul>
+            {/* If logged in */}
+            <div className={styles.items_container}>
+              <li>
+                <Link href="/events">
+                  <a>Events</a>
+                </Link>
+              </li>
               <li>
                 <Link href="/events/add">
                   <a>Add Event</a>
@@ -45,10 +50,17 @@ export default function Header() {
                   <FaSignOutAlt /> Logout
                 </button>
               </li>
-            </>
-          ) : (
-            // If logged out
-            <>
+            </div>
+          </ul>
+        ) : (
+          <ul className={styles.items_logout}>
+            {/* If logged out */}
+            <div className={styles.items_container}>
+              <li>
+                <Link href="/events">
+                  <a>Events</a>
+                </Link>
+              </li>
               <li>
                 <Link href="/account/login">
                   <a className="btn-secondary btn-icon">
@@ -56,9 +68,9 @@ export default function Header() {
                   </a>
                 </Link>
               </li>
-            </>
-          )}
-        </ul>
+            </div>
+          </ul>
+        )}
       </nav>
     </header>
   );

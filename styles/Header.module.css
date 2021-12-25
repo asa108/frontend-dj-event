@@ -17,11 +17,24 @@
 .header a:hover {
   color: #000;
 }
+
+.header .items_container{
+    display: flex;
+}
+
 .header ul {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   list-style: none;
+}
+
+.header li{
+    margin: auto;
+}
+
+.header .header_search_logo{
+  display: flex;
 }
 
 .logo {
@@ -38,19 +51,35 @@
   .header {
     flex-direction: column;
     height: auto;
+    padding: 0 10px;
   }
 
   .header ul {
-    margin: 20px 0;
-    flex-direction: column;
+    margin: 10px 0;
+    display: -webkit-box;
     text-align: center;
+  }
+
+  .header .items_logout{
+  margin-left: 183px;
+}
+
+  .header li{
+    margin: auto 12px;
+    font-size: 13px;
   }
 
   .header a {
     margin-right: 0;
   }
 
+  .header .header_search_logo{
+    padding-top: 20px;
+  }
+
   .logo {
-    margin: 20px 0;
+    font-size: 12px;
+    margin: auto;
+    margin-right: 113px;
   }
 }
