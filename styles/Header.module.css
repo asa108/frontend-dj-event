@@ -18,8 +18,11 @@
   color: #000;
 }
 
+.header .search_container{
+  margin: auto;
+}
+
 .header .search{
-  margin:auto; 
   cursor: pointer;
 }
 
@@ -64,7 +67,7 @@
   }
 
   .header ul {
-    margin: 10px 0;
+    margin: 30px 0 10px 0;
     display: -webkit-box;
     text-align: center;
   }
@@ -83,12 +86,18 @@
   }
 
   .header .header_search_logo{
-    padding-top: 20px;
+    padding-top: 15px;
+  }
+
+  .header .search_container{
+    position: absolute;
+    right: 28px;
   }
 
   .logo {
     font-size: 12px;
     margin: auto;
-    margin-right: 113px;
+    position: absolute;
+    left: 25px;
   }
 }

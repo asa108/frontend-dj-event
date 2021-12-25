@@ -9,7 +9,6 @@ import Search from "./Search";
 export default function Header() {
   const ref = useRef();
   const { user, logout } = useContext(AuthContext);
-  const [test, setTest] = useState(false);
   const [search, setSearch] = useState(false);
 
   useEffect(() => {
@@ -36,11 +35,13 @@ export default function Header() {
             <a>DJ Events</a>
           </Link>
         </div>
-        {search ? (
-          <Search ref={ref} />
-        ) : (
-          <FaSearch className={styles.search} onClick={searchClicked} />
-        )}
+        <div className={styles.search_container}>
+          {search ? (
+            <Search ref={ref} />
+          ) : (
+            <FaSearch className={styles.search} onClick={searchClicked} />
+          )}
+        </div>
       </div>
       <nav>
         {user ? (
